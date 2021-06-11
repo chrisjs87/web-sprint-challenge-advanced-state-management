@@ -20,8 +20,8 @@ export function fetchFail() {
 	return {type: FETCH_FAIL}
 }
 
-export function addSmurf() {
-	return {type: ADD_SMURF, payload: null}
+export function addSmurf(smurf) {
+	return {type: ADD_SMURF, payload: smurf}
 }
 
 export function giveError(err) {

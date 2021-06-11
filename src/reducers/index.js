@@ -25,20 +25,19 @@ export const reducer = (state = initialState, action)=>{
 			...state,
 			isLoading: false //   need to add paylaod stuff to actions
 		})
-		// case ADD_SMURF:
-		// return ({
-		// 	...state,
-		// 	smurfs: [
-		// 		...smurfs, 
-		// 		{
-		// 			id: ,
-		// 			name: ,
-		// 			nickname: ,
-		// 			position: ,
-		// 			summary: 
-		// 		}
-		// 	]
-		// })
+		case ADD_SMURF:
+		return ({
+			...state,
+			smurfs: [
+				...state.smurfs, 
+				{
+					name: action.payload.name,
+					nickname: action.payload.nickname,
+					position: action.payload.position,
+					description: action.payload.summary
+				}
+			]
+		})
 		case GIVE_ERROR:
 		return ({
 			...state,

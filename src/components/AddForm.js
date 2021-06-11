@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { connect } from 'react-redux';
 
-import { giveError } from './../actions'
+import { giveError, addSmurf } from './../actions'
 
 const AddForm = (props) => {
     const [state, setState] = useState({
@@ -25,6 +25,21 @@ const AddForm = (props) => {
             // errorMessage = "Name, position and nickname fields are required.";
 						props.dispatch(giveError("Name, position and nickname fields are required."));
         }
+				if (state.name !== "" && state.position !== "" && state.nickname !== "") {
+					props.dispatch(addSmurf({
+						name: state.name,
+						nickname: state.nickname,
+						position: state.position,
+						summary: state.description
+					}))
+				}
+				console.log({
+					name: state.name,
+					nickname: state.nickname,
+					position: state.position,
+					summary: state.description
+				})
+				console.log(props.smurfs)
     }
 
     // const errorMessage = "";
