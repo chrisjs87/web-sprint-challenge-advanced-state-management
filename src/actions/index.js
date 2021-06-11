@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 export const FETCH_START = "FETCH_START";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
@@ -9,38 +9,39 @@ export const GIVE_ERROR = "GIVE_ERROR";
 // http://localhost:3333/smurfs
 
 export function fetchStart() {
-	return {type: FETCH_START}
+  return { type: FETCH_START };
 }
 
 export function fetchSuccess(smurfs) {
-	return {type: FETCH_SUCCESS, payload:smurfs}
+  return { type: FETCH_SUCCESS, payload: smurfs };
 }
 
 export function fetchFail() {
-	return {type: FETCH_FAIL}
+  return { type: FETCH_FAIL };
 }
 
 export function addSmurf(smurf) {
-	return {type: ADD_SMURF, payload: smurf}
+  return { type: ADD_SMURF, payload: smurf };
 }
 
 export function giveError(err) {
-	return {type: GIVE_ERROR, payload: err}
+  return { type: GIVE_ERROR, payload: err };
 }
 
 export function fetchSmurfs() {
-	return (dispatch) => {
-		dispatch(fetchStart());
+  return (dispatch) => {
+    dispatch(fetchStart());
 
-		axios.get('http://localhost:3333/smurfs')
-		.then(resp => {
-			dispatch(fetchSuccess(resp.data))
-		})
-		.catch(err => {
-			dispatch(fetchFail());
-			console.log(err)
-		})
-	}
+    axios
+      .get("http://localhost:3333/smurfs")
+      .then((resp) => {
+        dispatch(fetchSuccess(resp.data));
+      })
+      .catch((err) => {
+        dispatch(fetchFail());
+        console.log(err);
+      });
+  };
 }
 
 //Task List:

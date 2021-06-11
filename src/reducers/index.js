@@ -1,52 +1,57 @@
-
-import {FETCH_START, FETCH_SUCCESS, FETCH_FAIL, ADD_SMURF, GIVE_ERROR} from './../actions';
+import {
+  FETCH_START,
+  FETCH_SUCCESS,
+  FETCH_FAIL,
+  ADD_SMURF,
+  GIVE_ERROR,
+} from "./../actions";
 
 export const initialState = {
-	smurfs: [],
-	isLoading: false,
-	error: ''
-}
+  smurfs: [],
+  isLoading: false,
+  error: "",
+};
 
-export const reducer = (state = initialState, action)=>{
-	switch(action.type) {
-		case FETCH_START:
-			return ({
-				...state,
-				isLoading: true
-			})
-		case FETCH_SUCCESS:
-		return ({
-			...state,
-			isLoading: false,
-			smurfs: action.payload // ?????????????? state.smurfs? spread state?
-		})
-		case FETCH_FAIL:
-		return ({
-			...state,
-			isLoading: false //   need to add paylaod stuff to actions
-		})
-		case ADD_SMURF:
-		return ({
-			...state,
-			smurfs: [
-				...state.smurfs, 
-				{
-					name: action.payload.name,
-					nickname: action.payload.nickname,
-					position: action.payload.position,
-					description: action.payload.summary
-				}
-			]
-		})
-		case GIVE_ERROR:
-		return ({
-			...state,
-			error: action.payload
-		})
-		default:
-			return state;
-	}
-}
+export const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case FETCH_START:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case FETCH_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        smurfs: action.payload, // ?????????????? state.smurfs? spread state?
+      };
+    case FETCH_FAIL:
+      return {
+        ...state,
+        isLoading: false, //   need to add paylaod stuff to actions
+      };
+    case ADD_SMURF:
+      return {
+        ...state,
+        smurfs: [
+          ...state.smurfs,
+          {
+            name: action.payload.name,
+            nickname: action.payload.nickname,
+            position: action.payload.position,
+            description: action.payload.summary,
+          },
+        ],
+      };
+    case GIVE_ERROR:
+      return {
+        ...state,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
 
 export default reducer;
 

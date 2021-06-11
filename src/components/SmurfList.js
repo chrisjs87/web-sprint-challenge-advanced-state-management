@@ -1,43 +1,43 @@
-import React from 'react';
-import Smurf from './Smurf';
+import React from "react";
+import Smurf from "./Smurf";
 
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
- const SmurfList = (props)=> {
-    // const isLoading = false;
-    // const testSmurf = {
-    //     id:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
-    //     name:'Poppa Smurf',
-    //     position:'Village Leader',
-    //     nickname: 'Pops',
-    //     description: 'Papa is the practical village leader and the father figure of 100 or so young Smurfs. He is easily identified by his red Smurf hat, pants, and a shortly-trimmed white beard and moustache.'
-    // }
+const SmurfList = (props) => {
+  // const isLoading = false;
+  // const testSmurf = {
+  //     id:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
+  //     name:'Poppa Smurf',
+  //     position:'Village Leader',
+  //     nickname: 'Pops',
+  //     description: 'Papa is the practical village leader and the father figure of 100 or so young Smurfs. He is easily identified by his red Smurf hat, pants, and a shortly-trimmed white beard and moustache.'
+  // }
 
-    if (props.isLoading) {
-        return <h1>Loading...</h1>;
-    }
+  if (props.isLoading) {
+    return <h1>Loading...</h1>;
+  }
 
-    return(
-			<div className="listContainer">
-					{/* <Smurf smurf={testSmurf}/> */}
-					{/* {props.smurfs.map(smurf => (
+  return (
+    <div className="listContainer">
+      {/* <Smurf smurf={testSmurf}/> */}
+      {/* {props.smurfs.map(smurf => (
 						<Smurf />
 					))} */}
-					{/* {console.log(props.smurfs[0])}
+      {/* {console.log(props.smurfs[0])}
 					<Smurf smurf={props.smurfs[0]}/> */}
-					{props.smurfs.map(smurf => (
-						<Smurf smurf={smurf}/>
-					))}
-			</div>
-		);
-}
+      {props.smurfs.map((smurf) => (
+        <Smurf smurf={smurf} />
+      ))}
+    </div>
+  );
+};
 
 const mapStateToProps = (state) => {
-	return {
-		smurfs: state.smurfs,
-		isLoading: state.isLoading
-	}
-}
+  return {
+    smurfs: state.smurfs,
+    isLoading: state.isLoading,
+  };
+};
 
 export default connect(mapStateToProps)(SmurfList);
 

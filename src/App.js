@@ -1,45 +1,44 @@
 // import React, { Component } from "react";
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
-import AddForm from './components/AddForm';
-import SmurfList from './components/SmurfList';
-import Header from './components/Header';
+import AddForm from "./components/AddForm";
+import SmurfList from "./components/SmurfList";
+import Header from "./components/Header";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
-import { connect } from 'react-redux';
-import { fetchSmurfs } from './actions'
+import { connect } from "react-redux";
+import { fetchSmurfs } from "./actions";
 
 // class App extends Component {
-function App (props) {
+function App(props) {
+  // componentDidMount(() => {
+  // 	dispatch(fetchSmurfs())
+  // })
 
-	// componentDidMount(() => {
-	// 	dispatch(fetchSmurfs())
-	// })
+  // const { fetchSmurfs } = props  didnt work
 
-	// const { fetchSmurfs } = props  didnt work
+  // useEffect(() => {
+  // 	props.dispatch(fetchSmurfs());
+  // }, []);
 
-	// useEffect(() => {
-	// 	props.dispatch(fetchSmurfs());
-	// }, []);
+  useEffect(() => {
+    props.dispatch(fetchSmurfs());
+  });
 
-	useEffect(() => {
-		props.dispatch(fetchSmurfs())
-	})
+  //  render() {
+  return (
+    <div className="App">
+      <Header />
 
-//  render() {
-    return (
-      <div className="App">
-        <Header />
-
-        <main>
-          <SmurfList/>
-          <AddForm/>
-        </main>
-      </div>
-    );
-//  }
+      <main>
+        <SmurfList />
+        <AddForm />
+      </main>
+    </div>
+  );
+  //  }
 }
 
 // const mapActionsToProps = {
