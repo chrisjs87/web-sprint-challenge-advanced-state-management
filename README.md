@@ -40,40 +40,64 @@ In this challenge, you are to build a Smurfs village database utilizing Redux as
 * [ ] Push your first commit: `git commit --allow-empty -m "first commit" && git push`
 * [ ] Check to see that Codegrade has accepted your git submission.
 
+
+
+---Complete---
+
+
+
 ### Task 3: Project Requirements
 
  Your finished project must include all of the following requirements. **Unlike other projects, the local server used here can not be accessed through the browser. It is started automatically and without the need for starting a server.js file. Feel free to ignore any messages related to MSW or mock service workers. For this and the rest of your sprint challenges, test the functioning of the server directly through your axios calls.**
 
-#### reducers/index.js
-  Add in the needed state and reducer cases to hold and modify smurf error messages, loading status and smurf data. **If at all possible, add in action cases one at a time, instead of all at once. Test your state connects and reducer cases as nessisary.**
 
-  * [ ] Adds the following state values into the initialState:
+
+
+#### reducers/index.js
+  Add in the needed state and reducer cases to hold and modify smurf error messages, loading status and smurf data. **If at all possible, add in action cases one at a time, instead of all at once. Test your state connects and reducer cases as necessary.**
+
+  * [COMPLETE] Adds the following state values into the initialState:
       - an array of smurfs
       - a boolean indicating if the app is loading
       - a string indicating a possible error message
 
-  * [ ] Add in the arguments needed to complete a standard reducer function.
-  * [ ] Add in a reducer case to accomidate the start of a smurf fetch.
-  * [ ] Add in a reducer case to accomidate the successful smurf api fetch.
-  * [ ] Add in a reducer cases to accomidate the failed smurf api fetch.
-  * [ ] Add in a reducer case to accomidate adding a smurf (including the name, nickname, position, summary and an internally generated id) into your smurf list.
-  * [ ] Add in a reducer case that adds in a value to the error message.
+  * [COMPLETED] Add in the arguments needed to complete a standard reducer function.
+  * [COMPLETED] Add in a reducer case to accommodate the start of a smurf fetch.
+  * [COMPLETED] Add in a reducer case to accommodate the successful smurf api fetch.
+  * [COMPLETED] Add in a reducer cases to accommodate the failed smurf api fetch.
+  * [ ] Add in a reducer case to accommodate adding a smurf (including the name, nickname, position, summary and an internally generated id) into your smurf list.
+  * [COMPLETED] Add in a reducer case that adds in a value to the error message.
 
+
+
+
+[COMPLETE]
 #### index.js
   Connect your application to reducer through redux with the thunk and logger middleware packages attached.
 
-#### actions/index.js
-  Add in the action creators and action constants needed to add a smurf to state and fetch smurfs from the server. **If at all possible, add in action cases one at a time, instead of all at once. Test your state connects and reducer cases as nessisary.**
 
-  * [ ] Add a thunk action called fetchSmurfs that triggers a loading status display in our application, performs an axios call to retreive smurfs from our server, saves the result of that call to our state and shows an error if one is made.
+
+
+#### actions/index.js
+  Add in the action creators and action constants needed to add a smurf to state and fetch smurfs from the server. **If at all possible, add in action cases one at a time, instead of all at once. Test your state connects and reducer cases as necessary.**
+
+  * [ ] Add a thunk action called fetchSmurfs that triggers a loading status display in our application, performs an axios call to retrieve smurfs from our server, saves the result of that call to our state and shows an error if one is made.
+
   * [ ] Add a standard action that allows us to add new smurf (including the name, nickname, position, summary).
+
   * [ ] Add a standard action that allows us to set the value of the error message slice of state.
   
+
+
+
 #### App.js
   Connect this component to redux **passing in your fetchSmurfs action only.** 
   
   * [ ] Connect the fetchSmurfs actions to the App component.
   * [ ] Call the fetchSmurfs action when the component first loads.
+
+
+
 
 #### components/SmurfList.js
   Connect this component to redux, **passing in your smurf array and loading status state values.** 
@@ -82,8 +106,14 @@ In this challenge, you are to build a Smurfs village database utilizing Redux as
   * [ ] Replace the single Smurf component instance with a map return a Smurf component for each entry in the smurfs list.
   * [ ] Replace the static isLoading variable with the state loading variable.
 
+
+
+
 #### components/Smurf.js
   You do not need to modify this component.
+
+
+
 
 #### components/AddForm.js
   Connect this component to redux **passing in your error message state value, setError action and addSmurf action.** Complete the form handling code.
@@ -91,7 +121,10 @@ In this challenge, you are to build a Smurfs village database utilizing Redux as
   * [ ] Connect the errorMessage, setError and addSmurf actions to the AddForm component.
   * [ ] Replace all instances of the errorMessage static variable with your error message state value. 
   * [ ] Within the handleSubmit function, replace the static assignment to errorMessage with a call to the setError action. Test that an error is displayed when this validation code fails.
-  * [ ] Within the handleSubmit function, call your addSmurf action with the smurf name, position, nickname and summury passed as arguments. Test that a smurf is correctly added to when the form is submitted.
+  * [ ] Within the handleSubmit function, call your addSmurf action with the smurf name, position, nickname and summary passed as arguments. Test that a smurf is correctly added to when the form is submitted.
+
+
+
 
   **Notes:**
 
