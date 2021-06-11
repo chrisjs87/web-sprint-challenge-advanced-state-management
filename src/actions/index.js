@@ -38,7 +38,7 @@ export function fetchSmurfs() {
 		})
 		.catch(err => {
 			dispatch(fetchFail());
-			dispatch(giveError(err));
+			console.log(err)
 		})
 	}
 }
