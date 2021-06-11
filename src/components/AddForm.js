@@ -36,6 +36,9 @@ const AddForm = (props) => {
           summary: state.description,
         })
       );
+			props.dispatch(
+        giveError("")
+      );
     }
     console.log({
       name: state.name,
